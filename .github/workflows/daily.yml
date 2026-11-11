@@ -1,0 +1,59 @@
+# the name shown in the Actions tab
+name: Daily chess sync
+
+# when this workflow should run
+on:
+  # run automatically on a schedule
+  schedule:
+    # every day at 18:30 UTC, which is 12:00 AM in India
+    - cron: "30 18 * * *"
+  # also adds a "Run workflow" button so you can test it by hand
+  workflow_dispatch:
+
+# give the workflow permission to save (commit) changes to the repo
+permissions:
+  contents: write
+
+# the list of jobs to run
+jobs:
+  # one job, named "sync"
+  sync:
+    # run it on a free Ubuntu machine hosted by GitHub
+    runs-on: ubuntu-latest
+    # the steps this job runs, in order
+    steps:
+      # step 1: download your repo's files onto the machine
+      - name: Get the repo files
+        uses: actions/checkout@v4
+
+      # step 2: install Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # use Python version 3.12
+          python-version: "3.12"
+
+      # step 3: install the requests library our script needs
+      - name: Install requests
+        run: pip install requests
+
+      # step 4: run the script to fetch new games into games.csv
+      - name: Fetch new games
+        run: python fetch_games.py
+
+      # step 5: commit games.csv, but only if it actually changed
+      - name: Commit new games
+        run: |
+          # sign commits as you so they count on your contribution graph
+          git config user.name "${{ github.repository_owner }}"
+          git config user.email "${{ github.repository_owner_id }}+${{ github.repository_owner }}@users.noreply.github.com"
+          # stage the csv file
+          git add games.csv
+          # if nothing changed, say so and stop
+          if git diff --cached --quiet; then
+            echo "No new games today."
+          # otherwise save the change and push it to GitHub
+          else
+            git commit -m "Update games $(date -u +%F)"
+            git push
+          fi
