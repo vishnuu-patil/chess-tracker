@@ -8388,3 +8388,11 @@ date,color,result,my_rating,opp_rating,time_class,time_control,rated,opening,url
 2026-11-23,white,win,618,597,blitz,180,True,French Defense Normal Variation,https://www.chess.com/game/live/187818292938
 2026-11-24,white,loss,603,616,blitz,180,True,Scandinavian Defense Mieses Kotrc Variation,https://www.chess.com/game/live/187925449866
 2026-11-24,black,loss,589,595,blitz,180,True,Scandinavian Defense Mieses Kotrc Variation,https://www.chess.com/game/live/187925648004
+2026-11-26,black,draw,589,589,blitz,180,True,Queens Pawn Opening Blackmar Gambit,https://www.chess.com/game/live/188039854912
+2026-11-26,white,win,603,603,blitz,180,True,Ruy Lopez Opening Jaenisch Gambit,https://www.chess.com/game/live/188040330584
+2026-11-26,black,win,616,617,blitz,180,True,Scandinavian Defense,https://www.chess.com/game/live/188042734332
+2026-11-26,black,win,627,588,blitz,180,True,Scandinavian Defense,https://www.chess.com/game/live/188043338382
+2026-11-26,white,win,1344,1310,rapid,600,True,Sicilian Defense Nyezhmetdinov Rossolimo Attack,https://www.chess.com/game/live/188043381622
+2026-11-26,black,loss,1335,1319,rapid,600,True,Scandinavian Defense,https://www.chess.com/game/live/188043717506
+2026-11-26,white,loss,1326,1320,rapid,600,True,Scandinavian Defense Mieses Kotrc Variation,https://www.chess.com/game/live/188044743804
+2026-11-26,white,loss,1318,1319,rapid,600,True,Scotch Game,https://www.chess.com/game/live/188047580386
